@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Course Eligibility Checker</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2
+        }
+
+        .box {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            text-align: center
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0
+        }
+
+        button {
+            background: blue;
+            color: white;
+            border: none
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h2>Course Eligibility</h2>
+
+        <input type="text" id="name" placeholder="Name">
+        <input type="number" id="marks" placeholder="Percentage">
+
+        <select id="course">
+            <option>Engineering</option>
+            <option>Medical</option>
+            <option>Management</option>
+        </select>
+
+        <button onclick="check()">Check</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function check() {
+            let n = document.getElementById("name").value;
+            let m = parseInt(document.getElementById("marks").value);
+            let c = document.getElementById("course").value;
+
+            if (n == "" || isNaN(m)) { result.innerHTML = "Fill all fields"; return; }
+
+            if ((c == "Engineering" && m >= 75) ||
+                (c == "Medical" && m >= 85) ||
+                (c == "Management" && m >= 60))
+                result.innerHTML = n + ", Eligible for " + c;
+            else
+                result.innerHTML = n + ", Not Eligible for " + c;
+        }
+    </script>
+
+</body>
+
+</html>
